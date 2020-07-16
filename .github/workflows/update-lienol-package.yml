@@ -1,0 +1,48 @@
+#
+# This is free software, lisence use MIT.
+# 
+# Copyright (C) 2020 KFERMercer <KFER.Mercer@gmail.com>
+# 
+# <https://github.com/KFERMercer/OpenWrt-CI>
+#
+
+name: Update-helloworld
+
+on:
+  schedule:
+    - cron: 35 19 * * *
+
+jobs:
+
+  prepare:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@master
+      with:
+        ref: master
+        fetch-depth: 0
+        lfs: true
+
+    - name: Set git identity
+      run : |
+        git config --global user.email "KFER.Mercer@gmail.com"
+        git config --global user.name "KFERMercer"
+
+    - name: Load latest helloworld
+      run: |
+        git clone https://github.com/Lienol/openwrt-package.git --depth=1 ./tmp/lienol
+        cp -rf ./tmp/lienol ./package/lienol
+        
+
+    - name: Apply commit changes
+      run: |
+        git add ./package/lienol/
+        echo -e "[bot] lienol: update\n\nlatest commit: $(cat ./tmp/lienol/.git/refs/heads/master)" > ./tmp/message
+        git commit --file="./tmp/message" || exit 0
+
+    - name: Push Commits
+      run: git push origin master
