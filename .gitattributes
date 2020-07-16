@@ -1,4 +1,1 @@
 * -text
-[submodule "package/lienol"]
-    path = package/lienol
-    url = https://github.com/Lienol/openwrt-package.git
