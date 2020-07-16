@@ -29,8 +29,8 @@ jobs:
 
     - name: Set git identity
       run : |
-        git config --global user.email "KFER.Mercer@gmail.com"
-        git config --global user.name "KFERMercer"
+        git config --global user.email "cpboy2020@163.com"
+        git config --global user.name "cpboy2020"
 
     - name: Load latest helloworld
       run: |
