@@ -39,10 +39,10 @@ jobs:
 
     - name: Set git identity
       run : |
-        git config --global user.email "KFER.Mercer@gmail.com"
-        git config --global user.name "KFERMercer"
+        git config --global user.email "cpboy2020@163.com"
+        git config --global user.name "cpboy"
 
-    - name: Load latest helloworld
+    - name: Load latest Lienol's openwrt-package
       run: |
         git clone https://github.com/Lienol/openwrt-package.git --depth=1 ./tmp/lienol
         cp -rf ./tmp/lienol ./package/lienol
