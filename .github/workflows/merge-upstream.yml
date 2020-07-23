@@ -14,7 +14,10 @@ on:
   # push:
   #   branches: 
   #     - master
-
+    
+  watch:
+   types: started
+  
 jobs:
 
   merge:
