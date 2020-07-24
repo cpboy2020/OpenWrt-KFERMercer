@@ -52,6 +52,7 @@ jobs:
     - name: Apply commit changes
       run: |
         git add ./package/lienol/
+        git submodule update --init --recursive
         #git submodule init
         #git submodule update         
         echo -e "[bot] lienol: update\n\nlatest commit: $(cat ./tmp/lienol/.git/refs/heads/master)" > ./tmp/message
