@@ -37,6 +37,7 @@ jobs:
       run : |
         git config --global user.email "66666045+cpboy2020@users.noreply.github.com"
         git config --global user.name "cpboy2020"
+        git config merge.renameLimit 999999
 
     - name: Load upstream commits
       run : |
