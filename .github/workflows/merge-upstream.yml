@@ -43,6 +43,7 @@ jobs:
       run : |
         git config pull.rebase true
         git config pull.ff only
+        git rebase --skip
         git pull https://github.com/coolsnowwolf/lede.git --log --no-commit
 
     - name: Apply commit changes
