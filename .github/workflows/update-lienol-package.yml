@@ -51,11 +51,7 @@ jobs:
 
     - name: Apply commit changes
       run: |
-        git add ./package/lienol/lienol/
-        git add ./package/lienol/obsolete/
-        git add ./package/lienol/others/
-        git add ./package/lienol/package/
-         
+        git add ./package/lienol/         
         echo -e "[bot] lienol: update\n\nlatest commit: $(cat ./tmp/lienol/.git/refs/heads/master)" > ./tmp/message
         git commit --file="./tmp/message" || exit 0
 
